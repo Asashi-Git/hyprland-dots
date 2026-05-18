@@ -1,0 +1,35 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+  "logo": {
+    "source": "~/.config/fastfetch/logo.txt",
+    "type": "file",
+    "padding": {
+      "right": 2
+    }
+  },
+  "display": {
+    "separator": "  "
+  },
+  "modules": [
+    "title",
+    "separator",
+    "os",
+    "kernel",
+    "wm",
+    "shell",
+    "cpu",
+    "memory",
+    "uptime",
+    {
+      "type": "localip",
+      "showIpv4": true,
+      "showIpv6": false
+    },
+    "break",
+    {
+      "type": "colors",
+      "symbol": "circle"
+    }
+  ]
+}
+

@@ -1,0 +1,11 @@
+#!/bin/bash
+# ~/.local/bin/update-sddm-theme
+
+IMAGE_PATH="$1"
+
+echo "Updating SDDM pixie background with: $IMAGE_PATH"
+
+# Copy and rename the image to pixie convention
+sudo cp "$IMAGE_PATH" /usr/share/sddm/themes/pixie/assets/background.jpg
+
+echo "SDDM pixie background updated!"

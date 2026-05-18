@@ -1,0 +1,76 @@
+{
+    "$schema": "/etc/xdg/swaync/configSchema.json",
+
+    "positionX": "right",
+    "positionY": "top",
+    "layer": "overlay",
+    "layer-shell": true,
+    "cssPriority": "application",
+
+    "control-center-margin-top": 10,
+    "control-center-margin-bottom": 10,
+    "control-center-margin-right": 10,
+    "control-center-margin-left": 0,
+
+    "control-center-width": 380,
+    "control-center-height": 600,
+
+    "notification-icon-size": 48,
+    "notification-body-image-height": 100,
+    "notification-body-image-width": 200,
+
+    "timeout": 5,
+    "timeout-low": 3,
+    "timeout-critical": 0,
+
+    "fit-to-screen": false,
+    "relative-timestamps": true,
+    "group-by-app": true,
+
+    "notification-window-width": 380,
+
+    "keyboard-shortcuts": true,
+    "image-visibility": "when-available",
+    "transition-time": 200,
+
+    "hide-on-clear": false,
+    "hide-on-action": true,
+
+    "widgets": [
+        "title",
+        "dnd",
+        "mpris",
+        "notifications"
+    ],
+
+    "widget-config": {
+
+        "title": {
+            "text": "Notifications",
+            "clear-all-button": true,
+            "button-text": "󰆴 Clear All"
+        },
+
+        "dnd": {
+            "text": "Do Not Disturb"
+        },
+
+        "mpris": {
+            "image-size": 56,
+            "image-radius": 8,
+            "blacklist": ["chromium", "brave"]
+        },
+
+        "notifications": {
+            "notification-visibility": {
+                "app-name": true,
+                "summary": true,
+                "body": true,
+                "urgency": true,
+                "time": true,
+                "icon": true
+            }
+        }
+    }
+}
+

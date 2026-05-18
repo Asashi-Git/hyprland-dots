@@ -1,0 +1,380 @@
+{
+    // ─── Bar Layout ───────────────────────────────────────────
+    "layer": "top",
+    "position": "top",
+    "height": 36,
+    "spacing": 4,
+    "margin-top": 6,
+    "margin-left": 10,
+    "margin-right": 10,
+
+    // ─── Modules Position ─────────────────────────────────────
+    "modules-left": [
+        "custom/launcher",
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "custom/updates",
+        "network",
+        "pulseaudio",
+        "cpu",
+        "memory",
+        "temperature",
+        "power-profiles-daemon",
+        "battery",
+        "custom/notification",
+        "custom/powermenu"
+    ],
+
+    // ─── Modules Config ───────────────────────────────────────
+
+    // Custom launcher button
+    "custom/launcher": {
+        "format": "\ue712",
+        "tooltip": false,
+        "on-click": "rofi -show drun"
+    },
+
+    // Hyprland workspaces with dynamic app icons
+    "hyprland/workspaces": {
+        // {icon} = workspace icon, {windows} = app icons inside
+        "format": "{icon} {windows}",
+        "on-click": "activate",
+        "all-outputs": true,
+        "active-only": false,
+        "show-special": true,
+        "format-window-separator": " ",
+        "sort-by-number": true,
+
+        "format-icons": {
+            "1": "󰲠",
+            "2": "󰲢",
+            "3": "󰲤",
+            "4": "󰲦",
+            "5": "󰲨",
+            "6": "󰲪",
+            "7": "󰲬",
+            "8": "󰲮",
+            "9": "󰲰",
+            "special": "󰖯",
+            "urgent": "󰗖",
+            "active": "󰮯",
+            "default": "󰊠"
+        },
+
+        "persistent-workspaces": {
+            "*": [1, 2, 3, 4, 5]
+        },
+
+        // If app not in the list below → show nothing (clean look)
+        "window-rewrite-default": "",
+
+        // Map window class → icon
+        // To find your app class: hyprctl activewindow | grep "class:"
+
+        "window-rewrite": {
+
+          // ── Terminal Apps (title-based matching) ───────────────
+          "title<.*nvim.*>":      "󰕷",    // title contains "nvim"
+          "title<.*Yazi.*>":      "󰉋",
+          "title<.*btop.*>":      "󰓅",
+          "title<.*rmpc.*>":      "󰝚",
+          "title<.*music.*>":     "󰝚",
+          "title<.*Youtube.*>":   "󰐌",
+          "title<.*cava.*>":      "󰓃",
+          "title<.*wiremix.*>":   "󰕾",
+
+          // ── Browsers ──────────────────────────────────────
+          "firefox":              "󰈹",
+          //"chromium":             "󰊯",
+          //"brave-browser":        "󰖟",
+          //"qutebrowser":          "󰖟",
+          //"thorium-browser":      "󰊯",
+
+          // ── Terminals ─────────────────────────────────────
+          "kitty":                "󰆍",
+          //"alacritty":            "󰆍",
+          //"foot":                 "󰆍",
+          //"wezterm":              "󰆍",
+          //"ghostty":              "󰆍",
+
+          // ── File Managers ─────────────────────────────────
+          //"thunar":               "󰉋",
+          //"nautilus":             "󰉋",
+          "nemo":                 "󰉋",
+          //"dolphin":              "󰉋",
+          //"ranger":               "󰉋",
+
+          // ── Code Editors ──────────────────────────────────
+          "code":                 "󰨞",
+          "code-oss":             "󰨞",
+          //"jetbrains-idea":       "󰟬",
+          //"jetbrains-pycharm":    "",
+          //"jetbrains-webstorm":   "󰖟",
+
+          // ── Communication ─────────────────────────────────
+          "discord":              "󰙯",
+          "vesktop":              "󰙯",
+          //"slack":                "󰒱",
+          //"telegram-desktop":     "󰔁",
+          //"signal":               "󰍡",
+          //"thunderbird":          "󰇮",
+
+          // ── Media ─────────────────────────────────────────
+          "spotify":              "󰓇",
+          //"vlc":                  "󰕼",
+          //"mpv":                  "",
+          //"gimp":                 "",
+          //"inkscape":             "",
+          //"obs":                  "󰐌",
+          //"kdenlive":             "󰃽",
+
+          // ── System Tools ──────────────────────────────────
+          //"pavucontrol":          "󰕾",
+          //"htop":                 "󰓅",
+          //"nm-connection-editor": "󰤨",
+          "virt-manager":         "󰋊",
+          //"docker":               "󰡨",
+
+          // ── Misc ──────────────────────────────────────────
+          "obsidian":             "󱓧",
+          "steam":                "󰓓",
+          //"lutris":               "󰺵",
+          //"heroic":               "󰺵"
+        }
+    },
+
+    // Active window title
+    "hyprland/window": {
+        "format": "  {}",
+        "max-length": 40,
+        "separate-outputs": true,
+        "rewrite": {
+          // ── Browsers ──────────────────────────────────────────
+          "(.*)Mozilla Firefox(.*)":          "󰈹  Firefox",
+          "(.*)Chromium(.*)":                 "󰊯  Chromium",
+          "(.*)Brave(.*)":                    "󰖟  Brave",
+          "(.*)qutebrowser(.*)":              "󰖟  Qutebrowser",
+          "(.*)Thorium(.*)":                  "󰊯  Thorium",
+
+          // ── Terminals ─────────────────────────────────────────
+          "(.*)kitty(.*)":                    "󰆍  Kitty",
+          "(.*)Alacritty(.*)":                "󰆍  Alacritty",
+          "(.*)foot(.*)":                     "󰆍  Foot",
+          "(.*)WezTerm(.*)":                  "󰆍  WezTerm",
+          "(.*)Ghostty(.*)":                  "󰆍  Ghostty",
+
+          // ── Neovim / editors inside terminal ──────────────────
+          "(.*)nvim(.*)":                     "󰕷  Neovim",
+          "(.*)NvChad(.*)":                   "󰕷  Neovim",
+          "(.*)VSCodium(.*)":                 "󰨞  VSCodium",
+          "(.*)Visual Studio Code(.*)":       "󰨞  VS Code",
+          "(.*)IntelliJ IDEA(.*)":            "󰟬  IntelliJ",
+          "(.*)PyCharm(.*)":                  "  PyCharm",
+          "(.*)WebStorm(.*)":                 "󰖟  WebStorm",
+
+          // ── File Managers ─────────────────────────────────────
+          "(.*)Thunar(.*)":                   "󰉋  Thunar",
+          "(.*)Files(.*)":                    "󰉋  Nautilus",
+          "(.*)Nemo(.*)":                     "󰉋  Nemo",
+          "(.*)Dolphin(.*)":                  "󰉋  Dolphin",
+          "(.*)yazi(.*)":                     "󰉋  Yazi",
+          "(.*)ranger(.*)":                   "󰉋  Ranger",
+
+          // ── Communication ─────────────────────────────────────
+          "(.*)Discord(.*)":                  "󰙯  Discord",
+          "(.*)Vesktop(.*)":                  "󰙯  Vesktop",
+          "(.*)Slack(.*)":                    "󰒱  Slack",
+          "(.*)Telegram(.*)":                 "󰔁  Telegram",
+          "(.*)Signal(.*)":                   "󰍡  Signal",
+          "(.*)Thunderbird(.*)":              "󰇮  Thunderbird",
+
+          // ── Media ─────────────────────────────────────────────
+          "(.*)Spotify(.*)":                  "󰓇  Spotify",
+          "(.*)wiremix(.*)":                  "󰕾  Wiremix",
+          "(.*)rmpc(.*)":                     "󰝚  Rmpc",
+          "(.*)VLC(.*)":                      "󰕼  VLC",
+          "(.*)mpv(.*)":                      "  Mpv",
+          "(.*)GIMP(.*)":                     "  GIMP",
+          "(.*)Inkscape(.*)":                 "  Inkscape",
+          "(.*)OBS":                          "󰐌  OBS Studio",
+          "(.*)Kdenlive(.*)":                 "󰃽  Kdenlive",
+
+          // ── System Tools ──────────────────────────────────────
+          "(.*)PulseAudio(.*)":               "󰕾  PavuControl",
+          "(.*)cava(.*)":                     "󰓃  Cava",
+          "(.*)btop(.*)":                     "󰓅  Btop",
+          "(.*)htop(.*)":                     "󰓅  Htop",
+          "(.*)Network Connections(.*)":      "󰤨  Network",
+          "(.*)impala(.*)":                   "󰤨  Network",
+          "(.*)virt-manager(.*)":             "󰋊  Virt-Manager",
+          "(.*)Docker(.*)":                   "󰡨  Docker",
+
+          // ── Misc ──────────────────────────────────────────────
+          "(.*)Obsidian(.*)":                 "󱓧  Obsidian",
+          "(.*)Steam(.*)":                    "󰓓  Steam",
+          "(.*)Lutris(.*)":                   "󰺵  Lutris",
+          "(.*)Heroic(.*)":                   "󰺵  Heroic"
+        } 
+    },
+
+    // Clock with calendar tooltip
+    "clock": {
+        "format": "󰥔 {:%H:%M}",
+        "format-alt": "󰸗 {:%A, %d %B %Y}",
+        "interval": 60,
+        "tooltip": true,
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "on-scroll": 1,
+            "format": {
+                "months":   "<span color='#cdd6f4'><b>{}</b></span>",
+                "days":     "<span color='#cdd6f4'>{}</span>",
+                "weekdays": "<span color='#89b4fa'><b>{}</b></span>",
+                "today":    "<span color='#a6e3a1'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+
+    // Network
+    "network": {
+        "interval": 5,
+        "format-wifi":        "󰤨 {essid}",
+        "format-ethernet":    "󰈀 {ifname}",
+        "format-disconnected":"󰤭 No Network",
+        "format-alt":         "󰤨 {bandwidthDownBytes} 󰕒 {bandwidthUpBytes}",
+        "tooltip-format":     "󰤨 {essid}\n󰩟 {ipaddr}\n󰕒 {bandwidthUpBytes}\n󰇚 {bandwidthDownBytes}",
+        "on-click-right":     "kitty sudo impala"
+    },
+
+    // Pulseaudio / PipeWire
+    "pulseaudio": {
+        "format":                   "{icon} {volume}%",
+        "format-muted":             "󰖁 Muted",
+        "format-bluetooth":         "󰂯 {volume}%",
+        "format-bluetooth-muted":   "󰂲 Muted",
+        "format-icons": {
+            "headphone":    "󰋋",
+            "hands-free":   "󰋎",
+            "headset":      "󰋎",
+            "phone":        "󰏲",
+            "portable":     "󰏲",
+            "car":          "󰄋",
+            "default":      ["󰕿", "󰖀", "󰕾"]
+        },
+        "scroll-step":      2,
+        "on-click":         "kitty wiremix",
+        "on-click-right":   "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "tooltip-format":   "{desc}\nVolume: {volume}%"
+    },
+
+    // CPU
+    "cpu": {
+        "interval":         5,
+        "format":           "󰍛 {usage}%",
+        "tooltip-format":   "CPU Usage: {usage}%\nLoad: {load}",
+        "on-click":         "kitty --title btop -e btop"
+    },
+
+    // RAM
+    "memory": {
+        "interval":         5,
+        "format":           "󰾆 {percentage}%",
+        "tooltip-format":   "RAM: {used:0.1f}G / {total:0.1f}G\nSwap: {swapUsed:0.1f}G / {swapTotal:0.1f}G",
+        "on-click":         "kitty --title btop -e btop"
+    },
+
+    // Temperature
+    "temperature": {
+        "interval":             5,
+        "critical-threshold":   80,
+        "format":               "{icon} {temperatureC}°C",
+        "hwmon-path": "/sys/class/hwmon/hwmon7/temp1_input",
+        "format-critical":      "󰸁 {temperatureC}°C",
+        "format-icons":         ["󱃃", "󰔏", "󱃂"],
+        "tooltip-format":       "Temperature: {temperatureC}°C"
+    },
+
+    // Battery
+    "battery": {
+        "interval": 30,
+        "states": {
+            "full":     100,
+            "good":     80,
+            "warning":  30,
+            "critical": 15
+        },
+        "format":           "{icon} {capacity}%",
+        "format-charging":  "󰂄 {capacity}%",
+        "format-plugged":   "󰚥 {capacity}%",
+        "format-full":      "󰁹 {capacity}%",
+        "format-alt":       "{icon} {time}",
+        "format-icons":     ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "tooltip-format":   "Battery: {capacity}%\n{timeTo}"
+    },
+
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip": true,
+      "states": {
+          "performance": "performance",
+          "balanced": "balanced",
+          "power-saver": "power-saver"
+      },
+      "format-icons": {
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      },
+    },
+
+
+    // Notification bell
+    "custom/notification": {
+      "tooltip":          false,
+      "format":           "{icon}",
+      "format-icons": {
+        "notification": "󰂚",
+        "none":         "󰂜",
+        "dnd-notification": "󰂛",
+        "dnd-none":     "󰂛",
+        "inhibited-notification": "󰂚",
+        "inhibited-none": "󰂜",
+        "dnd-inhibited-notification": "󰂛",
+        "dnd-inhibited-none": "󰂛"
+      },
+      "return-type":      "json",
+      "exec-if":          "which swaync-client",
+      "exec":             "swaync-client -swb",
+      "on-click":         "swaync-client -t -sw",
+      "on-click-right":   "swaync-client -d -sw",
+      "escape":           true
+      },
+
+
+    // Updates checker
+    "custom/updates": {
+        "format":           "󰚰 {}",
+        "tooltip":          true,
+        "tooltip-format":   "Pending updates: {}",
+        "interval":         120,
+        "exec":             "$HOME/.config/waybar/checkupdate.sh",
+        "on-click":         "$HOME/.config/waybar/update-system.sh",
+        "signal":           8
+    },
+
+    // Power menu
+    "custom/powermenu": {
+        "format":       "󰐥",
+        "tooltip":      false,
+        "on-click":     "wlogout -p layer-shell --buttons-per-row 2"
+    }
+}
+

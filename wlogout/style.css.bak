@@ -1,0 +1,103 @@
+/* =============================================
+   WLOGOUT STYLE
+   Static file - colors come from colors.css
+   ============================================= */
+
+@import 'colors.css';
+
+* {
+    background-image: none;
+    font-family: "JetBrainsMono Nerd Font";
+}
+
+window {
+    background-color: alpha(@surface, 0.85);
+}
+
+/* Base button style */
+button {
+    color: @on_surface;
+    background-color: @surface_container;
+    border: 2px solid @outline_variant;
+    border-radius: 16px;
+
+    margin: 15px;
+    padding: 20px;
+    min-width: 180px;
+    min-height: 180px;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    background-repeat: no-repeat;
+    background-position: center 30%;
+    background-size: 64px 64px;
+
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: @primary_container;
+    color: @on_primary_container;
+    border-color: @primary;
+}
+
+button:focus {
+    outline: none;
+    background-color: @primary_container;
+    color: @on_primary_container;
+    border-color: @primary;
+}
+
+/* =============================================
+   INDIVIDUAL BUTTON ICONS
+   ============================================= */
+
+#lock {
+    background-image: url("/usr/share/wlogout/icons/lock.png");
+}
+
+#logout {
+    background-image: url("/usr/share/wlogout/icons/logout.png");
+}
+
+#shutdown {
+    background-image: url("/usr/share/wlogout/icons/shutdown.png");
+}
+
+#reboot {
+    background-image: url("/usr/share/wlogout/icons/reboot.png");
+}
+
+/* =============================================
+   INDIVIDUAL BUTTON HOVER COLORS
+   ============================================= */
+
+/* Lock - primary */
+#lock:hover {
+    background-color: @primary_container;
+    color: @on_primary_container;
+    border-color: @primary;
+}
+
+/* Logout - secondary */
+#logout:hover {
+    background-color: @secondary_container;
+    color: @on_secondary_container;
+    border-color: @secondary;
+}
+
+/* Shutdown - error (red = danger = shutdown makes sense!) */
+#shutdown:hover {
+    background-color: @error_container;
+    color: @on_error_container;
+    border-color: @error;
+}
+
+/* Reboot - tertiary */
+#reboot:hover {
+    background-color: @tertiary_container;
+    color: @on_tertiary_container;
+    border-color: @tertiary;
+}
+

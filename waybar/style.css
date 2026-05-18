@@ -1,0 +1,314 @@
+/* ─── Import Matugen Colors ──────────────────────────────────── */
+@import "colors.css";
+
+/* ─── Global Reset & Font ────────────────────────────────────── */
+* {
+    font-family: "JetBrainsMono Nerd Font", "Noto Sans", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* ─── Main Bar ───────────────────────────────────────────────── */
+window#waybar {
+    background-color: transparent;
+    color: @on_background;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+    background-color: @surface;
+    border-radius: 12px;
+    margin: 0px 4px;
+    padding: 0px 8px;
+}
+
+/* ─── Tooltip ────────────────────────────────────────────────── */
+tooltip {
+    background-color: @surface_variant;
+    color: @on_surface_variant;
+    border-radius: 10px;
+    border: 1px solid @outline;
+    padding: 6px;
+}
+
+tooltip label {
+    color: @on_surface_variant;
+}
+
+/* ─── Launcher ───────────────────────────────────────────────── */
+#custom-launcher {
+    color: @primary;
+    font-size: 20px;
+    padding: 0px 10px;
+    margin: 4px 4px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+#custom-launcher:hover {
+    background-color: @primary_container;
+    color: @on_primary_container;
+}
+
+/* ─── Workspaces ─────────────────────────────────────────────── */
+#workspaces {
+    padding: 0px 4px;
+}
+
+#workspaces button {
+    color: @on_surface_variant;
+    background-color: transparent;
+    border-radius: 8px;
+    padding: 2px 8px;
+    margin: 4px 2px;
+    min-width: 20px;
+    transition: all 0.2s ease;
+}
+
+#workspaces button:hover {
+    background-color: @primary_container;
+    color: @on_primary_container;
+    box-shadow: none;
+}
+
+/* Active workspace */
+#workspaces button.active {
+    background-color: @primary;
+    color: @on_primary;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+/* Workspace with one app → hide the number icon, show only app icon */
+/* The workspace icon disappears and {windows} content takes over    */
+#workspaces button.occupied {
+    color: @secondary;
+}
+
+/* When active AND has an app open */
+#workspaces button.active.occupied {
+    background-color: @primary;
+    color: @on_primary;
+}
+
+/* Urgent workspace */
+#workspaces button.urgent {
+    background-color: @error_container;
+    color: @error;
+    animation: blink 1s linear infinite;
+}
+
+/* ─── Special Workspace (Scratchpad) ────────────────────────── */
+
+/* Give it a distinct color so it stands out */
+#workspaces button.special {
+    color: @tertiary;
+    background-color: transparent;
+    border-bottom: 2px solid @tertiary;   /* underline to mark it */
+    border-radius: 0px;
+    margin: 4px 2px;
+    padding: 2px 8px;
+}
+
+/* When special workspace is active (visible on screen) */
+#workspaces button.special.active {
+    color: @on_tertiary_container;
+    background-color: @tertiary_container;
+    border-bottom: 2px solid @tertiary;
+    border-radius: 8px;
+}
+
+/* Hover */
+#workspaces button.special:hover {
+    background-color: @tertiary_container;
+    color: @on_tertiary_container;
+}
+
+
+/* ─── Window Title ───────────────────────────────────────────── */
+#window {
+    color: @on_surface_variant;
+    padding: 0px 10px;
+    font-style: italic;
+}
+
+/* ─── Clock ──────────────────────────────────────────────────── */
+#clock {
+    color: @on_surface;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 0px 14px;
+}
+
+/* ─── Generic Right Modules ──────────────────────────────────── */
+#network,
+#pulseaudio,
+#cpu,
+#memory,
+#temperature,
+#battery,
+#custom-updates,
+#power-profiles-daemon,
+#custom-notification,
+#custom-powermenu {
+    padding: 0px 10px;
+    margin: 4px 2px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+/* ─── Network ────────────────────────────────────────────────── */
+#network {
+    color: @tertiary;
+}
+
+#network:hover {
+    background-color: @tertiary_container;
+    color: @on_tertiary_container;
+}
+
+#network.disconnected {
+    color: @error;
+}
+
+/* ─── Pulseaudio ─────────────────────────────────────────────── */
+#pulseaudio {
+    color: @secondary;
+}
+
+#pulseaudio:hover {
+    background-color: @secondary_container;
+    color: @on_secondary_container;
+}
+
+#pulseaudio.muted {
+    color: @on_surface_variant;
+}
+
+/* ─── CPU ────────────────────────────────────────────────────── */
+#cpu {
+    color: @primary;
+}
+
+#cpu:hover {
+    background-color: @primary_container;
+    color: @on_primary_container;
+}
+
+/* ─── Memory ─────────────────────────────────────────────────── */
+#memory {
+    color: @tertiary;
+}
+
+#memory:hover {
+    background-color: @tertiary_container;
+    color: @on_tertiary_container;
+}
+
+/* ─── Temperature ────────────────────────────────────────────── */
+#temperature {
+    color: @secondary;
+}
+
+#temperature:hover {
+    background-color: @secondary_container;
+    color: @on_secondary_container;
+}
+
+#temperature.critical {
+    color: @error;
+    animation: blink 1s linear infinite;
+}
+
+/* ─── Battery ────────────────────────────────────────────────── */
+#battery {
+    color: @primary;
+}
+
+#battery:hover {
+    background-color: @primary_container;
+    color: @on_primary_container;
+}
+
+#battery.charging {
+    color: @tertiary;
+}
+
+#battery.plugged {
+    color: @tertiary;
+}
+
+#battery.full {
+    color: @primary;
+}
+
+#battery.warning {
+    color: @error_container;
+}
+
+#battery.critical {
+    color: @error;
+    animation: blink 1s linear infinite;
+}
+/* ─── Battery ────────────────────────────────────────────────── */
+#power-profiles-daemon {
+  color: @primary;
+}
+
+#power-profiles-daemon.performance {
+  color: @error_container;
+}
+
+#power-profiles-daemon.balanced {
+  color: @tertiary;
+}
+
+#power-profiles-daemon.power-saver {
+  color: @primary;
+}
+
+/* ─── Updates ────────────────────────────────────────────────── */
+#custom-updates {
+    color: @secondary;
+}
+
+#custom-updates:hover {
+    background-color: @secondary_container;
+    color: @on_secondary_container;
+}
+
+/* ─── Notification ────────────────────────────────────────────────── */
+#custom-notification {
+    color: @secondary;
+}
+
+#custom-notification:hover {
+    background-color: @secondary_container;
+    color: @on_secondary_container;
+}
+
+/* ─── Power Menu ─────────────────────────────────────────────── */
+#custom-powermenu {
+    color: @error;
+    font-size: 15px;
+    margin-right: 6px;
+}
+
+#custom-powermenu:hover {
+    background-color: @error_container;
+    color: @on_error;
+}
+
+/* ─── Blink Animation ────────────────────────────────────────── */
+@keyframes blink {
+    0%   { opacity: 1.0; }
+    50%  { opacity: 0.4; }
+    100% { opacity: 1.0; }
+}
+

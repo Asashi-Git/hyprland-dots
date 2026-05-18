@@ -1,0 +1,21 @@
+/* ~/.config/gtk-3.0/gtk.css */
+
+/* Import matugen generated colors */
+@import 'colors.css';
+
+/*
+ * adw-gtk3 reads the libadwaita color variables from colors.css
+ * You can override specific widgets here if needed
+ */
+
+/* Example overrides - optional */
+/*
+headerbar {
+  background-color: @headerbar_bg_color;
+}
+
+.sidebar {
+  background-color: @sidebar_bg_color;
+}
+*/
+

@@ -1,0 +1,10 @@
+/* ~/.config/gtk-4.0/gtk.css */
+
+/* Import matugen generated colors */
+@import 'colors.css';
+
+/*
+ * Libadwaita natively reads all @define-color variables
+ * No theme needed for GTK4, it works out of the box
+ */
+

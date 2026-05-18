@@ -1,0 +1,192 @@
+@import "colors.rasi"
+
+* {
+    font:                        "JetBrainsMono Nerd Font 12";
+
+    text-normal:                 @on-surface;
+    text-selected:               @on-primary-container;
+    text-placeholder:            @on-surface-variant;
+    text-urgent:                 @error;
+
+    background-color:            transparent;
+    text-color:                  @text-normal;
+}
+
+/*****----- Main Window -----*****/
+window {
+    location:                    center;
+    anchor:                      center;
+    fullscreen:                  false;
+    width:                       680px;
+
+    background-color:            @surface;
+    border:                      1px solid;
+    border-color:                @primary;
+    border-radius:               16px;
+    cursor:                      "default";
+    padding:                     0px;
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled:                     true;
+    spacing:                     0px;
+    background-color:            transparent;
+    orientation:                 vertical;
+    children:                    [ "inputbar", "message", "listview", "mode-switcher" ];
+    padding:                     12px;
+}
+
+/*****----- Inputbar -----*****/
+inputbar {
+    enabled:                     true;
+    spacing:                     8px;
+    margin:                      0px 0px 10px 0px;
+    padding:                     10px 14px;
+    background-color:            @surface-container;
+    border:                      1px solid;
+    border-color:                @outline-variant;
+    border-radius:               12px;
+    text-color:                  @text-normal;
+    children:                    [ "prompt", "entry" ];
+}
+
+prompt {
+    enabled:                     true;
+    background-color:            transparent;
+    text-color:                  @primary;
+    font:                        "JetBrainsMono Nerd Font Bold 12";
+}
+
+entry {
+    enabled:                     true;
+    background-color:            transparent;
+    text-color:                  @text-normal;
+    cursor:                      text;
+    placeholder:                 "Search...";
+    placeholder-color:           @text-placeholder;
+}
+
+/*****----- Listview -----*****/
+listview {
+    enabled:                     true;
+    columns:                     1;
+    lines:                       8;
+    cycle:                       true;
+    dynamic:                     true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    reverse:                     false;
+    fixed-height:                true;
+    fixed-columns:               true;
+    spacing:                     4px;
+    background-color:            transparent;
+    border:                      0px;
+}
+
+/*****----- Elements -----*****/
+element {
+    enabled:                     true;
+    spacing:                     10px;
+    padding:                     8px 12px;
+    background-color:            transparent;
+    text-color:                  @text-normal;
+    border-radius:               10px;
+    cursor:                      pointer;
+}
+
+element normal.normal {
+    background-color:            transparent;
+    text-color:                  @text-normal;
+}
+
+element normal.urgent {
+    background-color:            @error-container;
+    text-color:                  @on-error-container;
+}
+
+element normal.active {
+    background-color:            @surface-container-high;
+    text-color:                  @secondary;
+}
+
+element selected.normal {
+    background-color:            @primary-container;
+    text-color:                  @on-primary-container;
+    border:                      1px solid;
+    border-color:                @primary;
+}
+
+element selected.urgent {
+    background-color:            @error;
+    text-color:                  @on-error;
+}
+
+element selected.active {
+    background-color:            @secondary-container;
+    text-color:                  @on-secondary-container;
+}
+
+element alternate.normal {
+    background-color:            transparent;
+    text-color:                  @text-normal;
+}
+
+element-icon {
+    background-color:            transparent;
+    text-color:                  inherit;
+    size:                        24px;
+    cursor:                      inherit;
+}
+
+element-text {
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
+
+/*****----- Mode Switcher -----*****/
+mode-switcher {
+    enabled:                     true;
+    spacing:                     6px;
+    margin:                      10px 0px 0px 0px;
+    background-color:            transparent;
+}
+
+button {
+    padding:                     6px 10px;
+    background-color:            @surface-container;
+    text-color:                  @text-placeholder;
+    border-radius:               8px;
+    cursor:                      pointer;
+    border:                      1px solid;
+    border-color:                transparent;
+}
+
+button selected {
+    background-color:            @primary-container;
+    text-color:                  @primary;
+    border-color:                @outline-variant;
+}
+
+/*****----- Message -----*****/
+message {
+    enabled:                     true;
+    margin:                      0px 0px 10px 0px;
+    padding:                     8px 12px;
+    background-color:            @surface-container;
+    border:                      1px solid;
+    border-color:                @outline-variant;
+    border-radius:               10px;
+    text-color:                  @tertiary;
+}
+
+textbox {
+    background-color:            transparent;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
+}
+

@@ -1,0 +1,96 @@
+/* =============================================
+   WLOGOUT STYLE
+   Static file - colors come from colors.css
+   ============================================= */
+@import 'colors.css';
+
+* {
+    background-image: none;
+    font-family: "JetBrainsMono Nerd Font";
+}
+
+window {
+    background-color: alpha(@background, 0.75);
+}
+
+/* Blurred overlay behind buttons */
+.container {
+    background-color: transparent;
+}
+
+/* Base button style */
+button {
+    color: @on_surface;
+    background-color: alpha(@surface_container, 0.85);
+    border: 2px solid @outline_variant;
+    border-radius: 20px;
+
+    margin: 20px;
+    padding: 30px;
+    min-width: 160px;
+    min-height: 160px;
+
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    background-repeat: no-repeat;
+    background-position: center 28%;
+    background-size: 58px 58px;
+
+    /* Smooth scale + color transition */
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* button:hover { */
+/*     border-width: 3px; */
+/* } */
+
+button:focus {
+    outline: none;
+}
+
+/* ── Individual hover colors ────────────── */
+
+#lock:hover {
+    background-color: alpha(@primary_container, 0.95);
+    color: @on_primary_container;
+    border-color: @primary;
+}
+
+#logout:hover {
+    background-color: alpha(@secondary_container, 0.95);
+    color: @on_secondary_container;
+    border-color: @secondary;
+}
+
+#shutdown:hover {
+    background-color: alpha(@error_container, 0.95);
+    color: @on_error_container;
+    border-color: @error;
+}
+
+#reboot:hover {
+    background-color: alpha(@tertiary_container, 0.95);
+    color: @on_tertiary_container;
+    border-color: @tertiary;
+}
+
+/* ── Icons ──────────────────────────────── */
+
+#lock {
+    background-image: url("/usr/share/wlogout/icons/lock.png");
+}
+
+#logout {
+    background-image: url("/usr/share/wlogout/icons/logout.png");
+}
+
+#shutdown {
+    background-image: url("/usr/share/wlogout/icons/shutdown.png");
+}
+
+#reboot {
+    background-image: url("/usr/share/wlogout/icons/reboot.png");
+}
+

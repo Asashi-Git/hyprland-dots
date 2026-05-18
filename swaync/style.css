@@ -1,0 +1,242 @@
+@import "colors.css";
+
+/* ─── Window / Panel ─────────────────────────────────────────── */
+.blank-window {
+    background: transparent;
+}
+
+.control-center {
+    background-color: alpha(@surface_container_lowest, 0.9);
+    border: 1px solid alpha(@primary_container, 0.7);
+    border-radius: 16px;
+    padding: 12px;
+    margin: 8px;
+    color: @on_surface;
+}
+
+/* ─── Notification Popups ────────────────────────────────────── */
+.notification-content,
+.notification-content > box,
+.notification-content > box > box,
+.notification > box {
+    background: transparent;
+}
+
+.notification-row {
+    outline: none;
+    margin: 4px 0;
+}
+
+.notification {
+    background-color: alpha(@surface_container, 0.55);
+    border: 1px solid alpha(@outline_variant, 0.4);
+    border-radius: 12px;
+    padding: 12px;
+    margin: 4px 8px;
+    color: @on_surface;
+}
+
+.notification:hover {
+    background-color: alpha(@surface_container_high, 0.7);
+    border-color: alpha(@primary, 0.6);
+}
+
+.notification-group {
+    background: transparent;
+}
+
+/* urgency */
+.notification.low {
+    border-left: 4px solid alpha(@secondary, 0.8);
+}
+
+.notification.normal {
+    border-left: 4px solid alpha(@primary, 0.8);
+}
+
+.notification.critical {
+    border-left: 4px solid @error;
+    background-color: alpha(@error_container, 0.7);
+    color: @on_error_container;
+}
+
+/* ─── Notification Content ───────────────────────────────────── */
+.notification-content {
+    background: transparent;
+    padding: 4px;
+}
+
+.notification-content:hover {
+  background: transparent;
+}
+
+.summary {
+    font-size: 14px;
+    font-weight: bold;
+    color: @on_surface;
+}
+
+.time {
+    font-size: 11px;
+    color: @on_surface_variant;
+    margin-right: 8px;
+}
+
+.body {
+    font-size: 12px;
+    color: @on_surface_variant;
+    margin-top: 4px;
+}
+
+/* ─── App Icon ───────────────────────────────────────────────── */
+.app-icon {
+    border-radius: 8px;
+    margin-right: 8px;
+    -gtk-icon-shadow: none;
+}
+
+.app-name {
+    font-size: 11px;
+    color: @outline;
+    margin-bottom: 2px;
+}
+
+/* ─── Buttons (actions) ──────────────────────────────────────── */
+.notification-action {
+    background-color: alpha(@primary_container, 0.6);
+    color: @on_primary_container;
+    border: none;
+    border-radius: 8px;
+    padding: 4px 12px;
+    margin: 4px 2px 0 2px;
+    font-size: 12px;
+}
+
+.notification-action:hover {
+    background-color: alpha(@primary, 0.8);
+    color: @on_primary;
+}
+
+/* ─── Close Button ───────────────────────────────────────────── */
+.close-button {
+    background-color: transparent;
+    color: @on_surface_variant;
+    border: none;
+    border-radius: 50%;
+    padding: 2px;
+    margin-right: 12px;
+    min-width: 24px;
+    min-height: 24px;
+}
+
+.close-button:hover {
+    background-color: alpha(@error_container, 0.7);
+    color: @error;
+}
+
+/* ─── Control Center Header ──────────────────────────────────── */
+.top-action-buttons {
+    background: transparent;
+    margin-bottom: 8px;
+}
+
+.control-center-list {
+    background: transparent;
+}
+
+.control-center-list-placeholder {
+    color: @outline;
+    font-size: 13px;
+}
+
+/* ─── Buttons grid ───────────────────────────────────────────── */
+.widget-buttons-grid > flowboxchild > button {
+    background-color: alpha(@surface_container_high, 0.5);
+    color: @on_surface;
+    border: 1px solid alpha(@outline_variant, 0.4);
+    border-radius: 10px;
+    padding: 8px;
+    margin: 4px;
+}
+
+.widget-buttons-grid > flowboxchild > button:hover {
+    background-color: alpha(@primary_container, 0.7);
+    color: @on_primary_container;
+    border-color: alpha(@primary, 0.5);
+}
+
+.widget-buttons-grid > flowboxchild > button.active {
+    background-color: alpha(@primary, 0.8);
+    color: @on_primary;
+}
+
+/* ─── Title ──────────────────────────────────────────────────── */
+.widget-title {
+    color: @on_surface;
+    font-size: 15px;
+    font-weight: bold;
+    padding: 4px 8px;
+    margin-bottom: 4px;
+}
+
+.widget-title > button {
+    background-color: alpha(@secondary_container, 0.6);
+    color: @on_secondary_container;
+    border: none;
+    border-radius: 8px;
+    padding: 4px 12px;
+    font-size: 12px;
+}
+
+.widget-title > button:hover {
+    background-color: alpha(@secondary, 0.7);
+    color: @on_secondary;
+}
+
+/* ─── MPRIS ──────────────────────────────────────────────────── */
+.widget-mpris {
+    background-color: alpha(@surface_container, 0.3);
+    border: 1px solid alpha(@outline_variant, 0.4);
+    border-radius: 12px;
+    padding: 12px;
+    margin: 4px 0;
+    color: @on_surface;
+}
+
+.widget-mpris-title {
+    font-weight: bold;
+    font-size: 13px;
+    color: @on_surface;
+}
+
+.widget-mpris-subtitle {
+    font-size: 12px;
+    color: @on_surface_variant;
+}
+
+.widget-mpris > box > button {
+    background: transparent;
+    color: @primary;
+    border: none;
+    border-radius: 50%;
+    padding: 4px;
+    min-width: 32px;
+    min-height: 32px;
+}
+
+.widget-mpris > box > button:hover {
+    background-color: alpha(@primary_container, 0.6);
+    color: @on_primary_container;
+}
+
+/* ─── Scrollbar ──────────────────────────────────────────────── */
+scrollbar slider {
+    background-color: alpha(@outline_variant, 0.5);
+    border-radius: 4px;
+    min-width: 4px;
+}
+
+scrollbar slider:hover {
+    background-color: alpha(@primary, 0.8);
+}
+

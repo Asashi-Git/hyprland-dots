@@ -1,0 +1,43 @@
+# ~/.config/hypr/hypridle.conf
+
+# ── General ─────────────────────────────────────
+
+general {
+    lock_cmd         = pidof hyprlock || hyprlock
+    before_sleep_cmd = loginctl lock-session
+    after_sleep_cmd  = hyprctl dispatch dpms on eDP-2 && hyprctl dispatch dpms on HDMI-A-1
+}
+
+# ── Send a notification before diming ───────────
+listener {
+    timeout    = 175
+    on-timeout = notify-send -u low -t 3000 "Idle" "Dimming Screens ..."
+    on-resume  = notify-send -u low -t 2000 "Welcome Back" "Restoring Brightness"
+}
+
+# ── Dim screen before locking ───────────────────
+listener {
+    timeout    = 180
+    on-timeout = brightnessctl -s set 10
+    on-resume  = brightnessctl -r
+}
+
+# ── Lock screen ─────────────────────────────────
+listener {
+    timeout    = 200
+    on-timeout = loginctl lock-session
+}
+
+# ── Screens off ─────────────────────────────────
+listener {
+    timeout    = 600
+    on-timeout = hyprctl dispatch dpms off eDP-2 && hyprctl dispatch dpms off HDMI-A-1 && brightnessctl -sd rgb:kbd_backlight set 0
+    on-resume  = hyprctl dispatch dpms on eDP-2 && hyprctl dispatch dpms on HDMI-A-1 && brightnessctl -r && brightnessctl -rd rgb:kbd_backlight
+}
+
+# ── Suspend ─────────────────────────────────────
+listener {
+    timeout    = 1800
+    on-timeout = systemctl suspend
+}
+
