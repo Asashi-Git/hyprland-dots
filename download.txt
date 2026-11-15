@@ -111,3 +111,5 @@ inside firefox about:config :
 sudo pacman -S qemu-full libvirt edk2-ovmf dnsmasq iptables-nft virt-manager
 sudo systemctl enable --now virtqemud.socket virtnetworkd.socket virtstoraged.socket
 sudo usermod -aG libvirt $USER
+
+Need to download this repo too https://github.com/Asashi-Git/Hyprbg
