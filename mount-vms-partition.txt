@@ -1,0 +1,5 @@
+
+sudo cryptsetup open /dev/nvme1n1p3 cryptvms  
+
+sudo mount /dev/mapper/sam--vms-vms /vms -o noatime,nosuid,noexec,nodev
+

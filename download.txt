@@ -1,0 +1,113 @@
+
+# Terminal
+curl
+bat
+fastfetch
+tree
+
+# Text editor
+obsidian
+neovim
+
+# Wifi
+impala
+
+# File Manager
+yazi
+
+# Utilities
+NetworkManager
+git
+btop
+
+# SSH
+openssh
+
+# Audio
+pipewire
+pipewire-pulse
+wireplumber
+wiremix
+pipewire-audio 
+pipewire-alsa
+bluetuith (yay)
+bluez
+bluez-utils
+vesktop (yay)
+
+# Fonts
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
+ttf-jetbrains-mono
+ttf-jetbrains-mono-nerd
+ttf-fira-code-nerd ttf-hack-nerd
+ttf-inter
+ttf-font-awesome
+otf-font-awesome
+
+# Hyprland
+kitty
+hyprland
+xdg-desktop-portal
+xdg-desktop-portal-gtk
+xdg-desktop-portal-hyprland
+waybar
+pacman-contrib (to work with my update script in waybar)
+hyprpolkitagent
+
+# Wallpaper engine
+swww / awww(new)
+
+# VPN
+wireguard-tools
+
+# App Luncher
+rofi
+
+# Notification center
+swaync
+
+# Color manager
+matugen
+sudo pacman -S adw-gtk-theme (needed for matugen gtk colors)
+
+# Music player
+rmpc
+mpd | systemctl --user enable mpd | do this before mdp-mpris
+mpd-mpris (needed for swaync to show the song) | systemctl --user enable mpd-mpris
+cava | for cli wave
+
+# Lock
+wlogout (yay)
+hyprlock
+hypridle
+brightnessctl
+
+# Window manager
+sddm
+pixie-sddm-git (yay) | Since I'm in arch linux the packet bellow is needed
+|   If you are on arch linux you need to create a file in /etc/sddm.conf.d/theme.conf
+|   That contain :
+|                 [Theme]
+|                 Current=pixie
+|   Then If you want to configure pixie go to /usr/share/sddm/themes/pixie/theme.conf
+qt6-declarative
+qt6-svg
+---
+
+# Firefox Video Encoding
+intel-media-driver
+libva-utils
+libva-nvidia-driver
+inside firefox about:config :
+    media.ffmpeg.vaapi.enabled = true
+    media.rdd-vpx.enabled = false
+    gfx.webrender.all = true
+
+# Needed
+
+# Virt-manager
+sudo pacman -S qemu-full libvirt edk2-ovmf dnsmasq iptables-nft virt-manager
+sudo systemctl enable --now virtqemud.socket virtnetworkd.socket virtstoraged.socket
+sudo usermod -aG libvirt $USER
