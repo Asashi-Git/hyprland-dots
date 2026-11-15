@@ -35,3 +35,6 @@ require("modules.input")
 require("modules.keybindings")
 -- Window-Rules configuration file
 require("modules.windowrules")
+
+-- hyprbg (wallpaper manager): shortcuts + slideshow resume, managed by hyprbg
+do local p = os.getenv("HOME") .. "/.config/hypr/hyprbg.lua"; local f = io.open(p); if f then f:close(); dofile(p) end end
